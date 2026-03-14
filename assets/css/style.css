@@ -1,0 +1,266 @@
+/* ============================================
+   One Line Per Day — Stylesheet
+   Design: minimal, calm, warm dark journal
+   ============================================ */
+
+/* --- Reset & Base -------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg:          #0f0e0d;
+    --surface:     #1a1917;
+    --text:        #e8dcc8;
+    --muted:       #7a6f61;
+    --accent:      #c9a96e;
+    --border:      #3a342c;
+    --font-body:   'Georgia', serif;
+    --font-mono:   'Courier New', monospace;
+}
+
+html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem 6rem;
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Layout ------------------------------------- */
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* --- Header / Date ------------------------------ */
+.site-header {
+    margin-bottom: 3.5rem;
+    text-align: center;
+}
+
+.site-title {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2rem;
+}
+
+.today-date {
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: var(--text);
+    letter-spacing: 0.01em;
+}
+
+/* --- Entry Input -------------------------------- */
+.entry-form {
+    margin-bottom: 2rem;
+}
+
+.entry-prompt {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+}
+
+.entry-input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    padding: 1rem 1.1rem;
+    resize: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    outline: none;
+    min-height: 80px;
+}
+
+.entry-input::placeholder {
+    color: var(--muted);
+    font-style: italic;
+}
+
+.entry-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.12);
+}
+
+.submit-btn {
+    margin-top: 1rem;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--accent);
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.submit-btn:hover {
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+/* --- Today's Saved Entry ------------------------ */
+.todays-entry {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+
+.todays-entry .sentence {
+    font-size: 1.15rem;
+    color: var(--text);
+    font-style: italic;
+}
+
+.entry-saved-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.9rem;
+}
+
+/* --- Nav link ----------------------------------- */
+.nav-link {
+    display: inline-block;
+    margin-top: 2.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* --- Flash messages ----------------------------- */
+.flash {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 0.7rem 1rem;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    border: 1px solid;
+}
+
+.flash.error {
+    color: #e07a5f;
+    border-color: #3d2820;
+    background: #1e110d;
+}
+
+/* --- Memory Lane -------------------------------- */
+.memory-header {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.memory-header h1 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.memory-header p {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.memory-list {
+    list-style: none;
+}
+
+.memory-item {
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.memory-item:first-child {
+    border-top: 1px solid var(--border);
+}
+
+.memory-item .item-date {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+}
+
+.memory-item .item-sentence {
+    font-size: 1.05rem;
+    color: var(--text);
+    font-style: italic;
+}
+
+/* Gap day — a missed day */
+.memory-item.gap {
+    padding: 1.1rem 0;
+}
+
+.memory-item.gap .item-date {
+    color: #3a342c;
+}
+
+.memory-item.gap .item-sentence {
+    color: #2a2420;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
+}
+
+/* --- Responsive --------------------------------- */
+@media (max-width: 480px) {
+    html { font-size: 16px; }
+    body { padding: 2rem 1rem 5rem; }
+    .today-date { font-size: 1.3rem; }
+}
