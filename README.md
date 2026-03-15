@@ -1,60 +1,54 @@
-# 📓 One Line Per Day
+# One Line Per Day
 
-> *A minimalist daily diary — one sentence at a time.*
-
----
-
-## What is this?
-
-**One Line Per Day** is a beautifully simple journaling app. Every day, you write exactly **one sentence** about your life. Nothing more, nothing less.
-
-Over time, these single lines stack up into a quiet, honest record of your days — a scroll of life moments, stripped of noise and distraction.
-
-No word counts. No pressure. Just one line.
+A journaling app with a single rule: one sentence per day.
 
 ---
 
-## ✨ Features
+## What it does
 
-- **One sentence per day** — the constraint is the feature
-- **Memory Lane** — scroll back through every entry, oldest to newest
-- **Gap detection** — days you skipped are shown, so the record stays honest
-- **Minimal UI** — dark, warm, distraction-free design
-- **Mobile friendly** — works beautifully on any screen size
-- **No accounts, no tracking** — just you and your words
+Each day, the homepage presents a text input. You write one sentence and submit it. Once saved, the entry is locked for that day and the input is replaced with the saved line. Over time, entries accumulate into a plain chronological record.
 
----
+The Memory Lane page lists all past entries from oldest to newest. Days with no entry are shown explicitly, so gaps in the record are visible rather than hidden.
 
-## 🛠 Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Backend | PHP 8.x |
-| Database | MySQL 8.x |
-| Web Server | Apache |
-| Frontend | HTML5, CSS3, Vanilla JavaScript |
-| Environment | LAMP Stack |
+There are no user accounts and no external tracking.
 
 ---
 
-## 📸 Screenshots
+## Features
 
-> _Screenshots coming soon._
-
-<!-- Add your screenshots here:
-![Homepage](screenshots/homepage.png)
-![Memory Lane](screenshots/memory-lane.png)
--->
+- One sentence per day, enforced by the interface
+- Memory Lane: a full list of past entries, oldest to newest
+- Gap detection: skipped days appear in the record
+- Dark minimal UI, no accounts, no tracking
+- Responsive — works on mobile
 
 ---
 
-## 🚀 Getting Started
+## Tech stack
+
+| Layer       | Technology                      |
+|-------------|---------------------------------|
+| Backend     | PHP 8.x                         |
+| Database    | MySQL 8.x                       |
+| Web server  | Apache                          |
+| Frontend    | HTML5, CSS3, Vanilla JavaScript |
+| Environment | LAMP stack                      |
+
+---
+
+## Screenshots
+
+Screenshots coming soon.
+
+---
+
+## Setup
 
 ### Prerequisites
 
-- A local LAMP stack (Linux + Apache + MySQL + PHP)
 - PHP 8.x
 - MySQL 8.x
+- Apache (local LAMP stack)
 
 ### Installation
 
@@ -65,9 +59,7 @@ git clone https://github.com/your-username/one-line-per-day.git
 cd one-line-per-day
 ```
 
-**2. Set up the database**
-
-Log into MySQL and run the setup script:
+**2. Initialize the database**
 
 ```bash
 mysql -u root -p < setup-database.sql
@@ -77,7 +69,7 @@ This creates the `one_line_per_day` database and the `entries` table.
 
 **3. Configure the database connection**
 
-Open `includes/db.php` and update your credentials if needed:
+Open `includes/db.php` and set your credentials:
 
 ```php
 define('DB_HOST', 'localhost');
@@ -86,21 +78,17 @@ define('DB_USER', 'root');
 define('DB_PASS', 'your_password');
 ```
 
-**4. Point Apache to the project**
+**4. Serve the project**
 
-Place the project folder inside your web root (e.g. `/var/www/html/`) and visit:
+Place the project folder in your web root (e.g. `/var/www/html/`) and open:
 
 ```
 http://localhost/one-line-per-day/
 ```
 
-**5. Start writing**
-
-Open the app in your browser and write your first line. That's it.
-
 ---
 
-## 📁 Project Structure
+## Project structure
 
 ```
 one-line-per-day/
@@ -118,14 +106,6 @@ one-line-per-day/
 
 ---
 
-## 👤 Author
+## Author
 
-**Mansur**
-
-Built with simplicity in mind — one line at a time.
-
----
-
-<p align="center">
-  <em>"The secret of getting ahead is getting started."</em>
-</p>
+Mansur
