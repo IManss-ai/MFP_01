@@ -113,8 +113,24 @@ body {
     box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.12);
 }
 
+/* --- Character Counter -------------------------- */
+.char-counter {
+    display: block;
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+    transition: color 0.2s;
+}
+
+.char-counter--warn  { color: var(--accent); }
+.char-counter--limit { color: #e07a5f; }
+
+/* --- Submit Button ------------------------------ */
 .submit-btn {
-    margin-top: 1rem;
     background: none;
     border: 1px solid var(--border);
     border-radius: 3px;
