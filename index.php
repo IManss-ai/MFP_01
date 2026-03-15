@@ -50,12 +50,13 @@ $error = $_GET['error'] ?? null;
                 <textarea
                     class="entry-input"
                     name="sentence"
+                    id="entry-textarea"
                     maxlength="500"
                     rows="3"
                     placeholder="One sentence. That's all."
                     autofocus
                 ></textarea>
-                <br>
+                <span class="char-counter" id="char-counter">0 / 500</span>
                 <button type="submit" class="submit-btn">Save this line</button>
             </form>
             <a href="memory-lane.php" class="nav-link">Memory Lane &rarr;</a>
@@ -63,5 +64,20 @@ $error = $_GET['error'] ?? null;
         <?php endif; ?>
 
     </div>
+
+    <?php if (!$today_entry): ?>
+    <script>
+        const textarea = document.getElementById('entry-textarea');
+        const counter  = document.getElementById('char-counter');
+        const MAX = 500;
+
+        textarea.addEventListener('input', function () {
+            const len = this.value.length;
+            counter.textContent = len + ' / ' + MAX;
+            counter.classList.toggle('char-counter--warn',  len >= 400);
+            counter.classList.toggle('char-counter--limit', len >= 480);
+        });
+    </script>
+    <?php endif; ?>
 </body>
 </html>
